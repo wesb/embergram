@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Embergram - A useless little Ember.js demo app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <script type="text/x-handlebars">
+      {{#collection contentBinding="Embergram.imagesController" tagName="ul"}}
+        <img {{bindAttr src="content.thumbnail_url"}} width="150" height="150">
+      {{/collection}}
+    </script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ember-0.9.6.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

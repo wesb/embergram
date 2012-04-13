@@ -1,0 +1,9 @@
+ul.ember-view {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.ember-view li {
+  float: left;
+}
