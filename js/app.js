@@ -14,7 +14,7 @@ Embergram.imagesController = Ember.ArrayController.create({
 
 $(function(){
   // Load the popular images from instagram
-  $.get('https://api.instagram.com/v1/media/popular?client_id=49a422e3020c43259c55e1c59722cdd6', function(response) {
+  $.getJSON('https://api.instagram.com/v1/media/popular?client_id=49a422e3020c43259c55e1c59722cdd6&callback=?', function(response) {
     $.each(response.data, function(index, record){
       Embergram.imagesController.createImage(record.images.thumbnail.url);
     });
