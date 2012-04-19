@@ -1,7 +1,8 @@
 Embergram = Ember.Application.create();
 
 Embergram.Image = Ember.Object.extend({
-  thumbnail_url: null
+  thumbnail_url: null,
+  isLiked: false
 });
 
 Embergram.imagesController = Ember.ArrayController.create({

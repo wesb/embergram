@@ -15,6 +15,7 @@
     <script type="text/x-handlebars">
       {{#collection contentBinding="Embergram.imagesController" tagName="ul"}}
         <img {{bindAttr src="content.thumbnail_url"}} width="150" height="150">
+        {{view Ember.Checkbox valueBinding="content.isLiked"}}
       {{/collection}}
     </script>
     <script src="js/jquery-1.7.2.min.js"></script>
