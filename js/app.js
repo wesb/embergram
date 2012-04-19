@@ -10,7 +10,18 @@ Embergram.imagesController = Ember.ArrayController.create({
   createImage: function(thumbnail_url) {
     var image = Embergram.Image.create({ thumbnail_url: thumbnail_url });
     this.pushObject(image);
-  }
+  },
+  liked: function() {
+    return this.filterProperty('isLiked', true);
+  }.property('@each.isLiked')
+});
+
+Embergram.LikedView = Ember.View.extend({
+  likedBinding: 'Embergram.imagesController.liked',
+
+  likedCount: function() {
+    return this.get('liked').get('length');
+  }.property('liked')
 });
 
 $(function(){
