@@ -6,4 +6,13 @@ ul.ember-view {
 
 ul.ember-view li {
   float: left;
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+ul.ember-view li input {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
