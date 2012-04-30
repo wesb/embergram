@@ -11,8 +11,19 @@ ul.ember-view li {
   position: relative;
 }
 
-ul.ember-view li input {
+.image-container {
+  display: block;
+  width: 150px;
+  height: 150px;
+  cursor: pointer
+}
+
+.is-liked:after {
+  content: "♥";
   position: absolute;
   bottom: 10px;
   right: 10px;
+  color: #fff;
+  font-size: 33px;
+  text-shadow: 0 0 2px #000;
 }

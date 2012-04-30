@@ -22,7 +22,11 @@ Embergram.imagesController = Ember.ArrayController.create({
   },
   liked: function() {
     return this.filterProperty('isLiked', true);
-  }.property('@each.isLiked')
+  }.property('@each.isLiked'),
+  toggleLiked: function(event){
+    toggled_value = !Ember.getPath(event.context, 'content.isLiked');
+    Ember.setPath(event.context, 'content.isLiked', toggled_value);
+  }
 });
 
 Embergram.LikedView = Ember.View.extend({
