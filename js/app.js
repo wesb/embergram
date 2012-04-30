@@ -11,6 +11,15 @@ Embergram.imagesController = Ember.ArrayController.create({
     var image = Embergram.Image.create({ thumbnail_url: thumbnail_url });
     this.pushObject(image);
   },
+  loadImages: function(){
+    this.clear();
+    // Load the popular images from instagram
+    $.getJSON('https://api.instagram.com/v1/media/popular?client_id=49a422e3020c43259c55e1c59722cdd6&callback=?', function(response) {
+      $.each(response.data, function(index, record){
+        Embergram.imagesController.createImage(record.images.thumbnail.url);
+      });
+    });
+  },
   liked: function() {
     return this.filterProperty('isLiked', true);
   }.property('@each.isLiked')
@@ -25,10 +34,5 @@ Embergram.LikedView = Ember.View.extend({
 });
 
 $(function(){
-  // Load the popular images from instagram
-  $.getJSON('https://api.instagram.com/v1/media/popular?client_id=49a422e3020c43259c55e1c59722cdd6&callback=?', function(response) {
-    $.each(response.data, function(index, record){
-      Embergram.imagesController.createImage(record.images.thumbnail.url);
-    });
-  });
+  Embergram.imagesController.loadImages();
 });
